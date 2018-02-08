@@ -1,0 +1,353 @@
+---
+# IMPORTANT: Change settings here, but DO NOT change the spacing. 
+# Remove comments and add values where applicable. 
+# The descriptions below should be self-explanatory
+
+title: "Helping You Write Academic Papers in R using Texevier"
+#subtitle: "This will appear as Right Header"
+
+documentclass: "elsarticle"
+
+# Comment: ----- Follow this pattern for up to 5 authors
+Author1: "Nico Katzke"  # First Author
+Ref1: "Prescient Securities, Cape Town, South Africa" # First Author's Affiliation
+Email1: "nfkatzke\\@gmail.com" # First Author's Email address
+
+Author2: "John Smith"
+Ref2: "Some other Institution, Cape Town, South Africa"
+Email2: "John Smith\\@gmail.com"
+CommonAffiliation_12: TRUE # If Author 1 and 2 have a common affiliation. Works with _13, _23, etc.
+
+Author3: "John Doe"
+Email3: "JohnSmith\\@gmail.com"
+
+CorrespAuthor_1: TRUE  # If corresponding author is author 3, e.g., use CorrespAuthor_3: TRUE
+
+keywords: "Multivariate GARCH \\sep Kalman Filter \\sep Copula" # Use \\sep to separate
+JELCodes: "L250 \\sep L100"
+
+# Comment: ----- Manage headers and footers:
+#BottomLFooter: $Title$
+#BottomCFooter:
+#TopLHeader: \leftmark # Adds section name at topleft. Remove comment to add it.
+BottomRFooter: "\\footnotesize Page \\thepage\\" # Add a '#' before this line to remove footer.
+addtoprule: TRUE
+addfootrule: TRUE               # Use if footers added. Add '#' to remove line.
+
+# Setting page margins:
+margin: 2.3 # Sides
+bottom: 2 # bottom
+top: 2.5 # Top
+
+HardSet: TRUE # Hard-set the spacing of words in your document. This will stop LaTeX squashong text to fit on pages, e.g. This is done by hard-setting the spacing dimensions. Set to FALSE if you want LaTeX to optimize this for your paper. 
+bibliography: Tex/ref.bib       # Do not edit: Keep this naming convention and location.
+RemovePreprintSubmittedTo: TRUE  # Removes the 'preprint submitted to...' at bottom of titlepage
+Journal: "Journal of Finance"   # Journal that the paper will be submitting to, if RemovePreprintSubmittedTo is set to TRUE.
+toc: no                         # Add a table of contents
+numbersections: yes             # Should sections (and thus figures and tables) be numbered?
+fontsize: 11pt                  # Set fontsize
+linestretch: 1.2                # Set distance between lines.
+link-citations: TRUE            # This creates dynamic links to the papers in reference list.
+output:
+  pdf_document:
+    keep_tex: TRUE
+    template: Tex/TexDefault.txt
+    fig_width: 3.5 # Adjust default figure sizes. This can also be done in the chunks of the text.
+    fig_height: 3.5
+    include:
+      in_header: Tex/packages.txt # Reference file with extra packages
+abstract: |
+  Abstract to be written here. The abstract should not be too long and should provide the reader with a good understanding what you are writing about. Academic papers are not like novels where you keep the reader in suspense. To be effective in getting others to read your paper, be as open and concise about your findings here as possible. Ideally, upon reading your abstract, the reader should feel he / she must read your paper in entirety.
+---
+
+<!-- First: Set your default preferences for chunk options: -->
+
+<!-- If you want a chunk's code to be printed, set echo = TRUE. message = FALSE stops R printing ugly package loading details in your final paper too. I also suggest setting warning = FALSE and checking for warnings in R, else you might find ugly warnings in your paper. -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
+# Note: Include = FALSE implies the code is executed, but not printed in your pdf.
+# warning and message = FALSE implies ugly messages and warnings are removed from your pdf. These should be picked up when you execute the command chunks (code sections below) in your rmd, not printed in your paper!
+
+```
+
+
+<!-- ############################## -->
+<!-- # Start Writing here: -->
+<!-- ############################## -->
+
+# Introduction \label{Introduction}
+
+References are to be made as follows: @fama1997[p. 33] and @grinold2000 Such authors could also be referenced in brackets [@grinold2000] and together [@fama1997 \& @grinold2000]. Source the reference code from scholar.google.com by clicking on ``cite'' below article name. Then select BibTeX at the bottom of the Cite window, and proceed to copy and paste this code into your ref.bib file, located in the directory's Tex folder. Open this file in Rstudio for ease of management, else open it in your preferred Tex environment. Add and manage your article details here for simplicity - once saved, it will self-adjust in your paper.
+
+> I suggest renaming the top line after \@article, as done in the template ref.bib file, to something more intuitive for you to remember. Do not change the rest of the code. Also, be mindful of the fact that bib references from google scholar may at times be incorrect. Reference Latex forums for correct bibtex notation.
+
+To reference a section, you have to set a label using ``\\label'' in R, and then reference it in-text as e.g.: section \ref{Data}.
+
+
+Writing in Rmarkdown is surprizingly easy - see [this website](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) cheatsheet for a summary on writing Rmd writing tips.
+
+# Data \label{Data}
+
+Discussion of data should be thorough with a table of statistics and ideally a figure. 
+
+In your tempalte folder, you will find a Data and a Code folder. In order to keep your data files neat, store all of them in your Data folder. Also, I strongly suggest keeping this Rmd file for writing and executing commands, not writing out long pieces of data-wrangling. In the example below, I simply create a ggplot template for scatter plot consistency. I suggest keeping all your data in a data folder.
+
+<!-- The following is a code chunk. It must have its own unique name (after the r), or no name. After the comma follows commands for R which are self-explanatory. By default, the code and messages will not be printed in your pdf, just the output: -->
+
+```{r Figure1, warning =  FALSE, fig.align = 'center', fig.cap = "Caption Here \\label{Figure1}", fig.ext = 'png', fig.height = 3, fig.width = 6}
+
+library("tidyverse")
+library("ggplot2")
+library("ggthemes")
+
+
+if (!file.exists(file.path(getwd(), "code/Example_Plot_Scatter.R"))) {
+  # This is just a random plot to show you a plot. This is done if the getwd() does not point to your Template's directory.
+  # Set WD below to your project's working directory.
+  
+  g <-
+  ggplot(data = mtcars %>% tbl_df()) + # All data must be tbl_df()::: class(mtcars %>% tbl_df())
+  geom_point(aes(x = disp, y = hp, color = cyl)) +
+  theme_bw() +
+  # theme(legend.position = "none") +
+  theme(plot.title = element_text(size = 10)) +
+  theme(axis.title = element_text(size = 10), 
+        axis.title.x = element_text()) +
+  ylab("y-axis") +
+  xlab("x-axis")
+
+print(g)  
+
+} else {
+
+# ----------  Using your Code and Data folders to manage your Template:
+#------------------- To make this work, change WD to your project's directory:
+
+  WD <- getwd()
+
+# Load ExampleData using read_rds or read_csv from readr package:
+ExampleData <- read_csv( file.path(WD, "data/ExampleData.csv") )
+
+source( file.path(WD, "code/Example_Plot_Scatter.R") ) # Load a function from your 'code' folder. This e.g. plots scatters to your own preferences.
+source( file.path(WD, "code/Data_Create.R") ) # 
+
+ExampleData <- Data_Create(N = 100) # Same as the ExampleData loaded above - this is just a function to create the stored data.
+
+g <- Example_Plot_Scatter(DataInput = ExampleData, 
+                          X = "Height_Score",
+                          Y = "Weight_Score",
+                          Z = "Agility_Score",
+                          Theme = theme_bw(), # run ?ggthemes for other themes. 
+                          Title = "", # I prefer to use the caption set above. 
+                          Ylab = "Height", 
+                          Xlab = "Lenght",
+                          LegendTitle = "Agility",
+                          TitleSize = 10, 
+                          LabSize = 10)
+
+print(g)
+
+  
+}
+
+
+# Although the functions above are really simple, the principle is simple: containing calculations and data wrangling in their own functions will make this template much cleaner and manageable. 
+
+# When you start working, delete these meaningless functions and replace with your own...
+
+```
+
+To reference the plot above, add a ``\\label'' after the caption in the chunk heading, as done above. Then reference the plot as such: As can be seen, figure \ref{Figure1} is excellent. The nice thing now is that it correctly numbers all your figures (and sections or tables) and will update if it moves. The links are also dynamic.
+
+I very strongly suggest using ggplot2 (ideally in combination with dplyr) using the ggtheme package to change the themes of your figures.
+
+Also note the information that I have placed above the chunks in the code chunks for the figures. You can edit any of these easily - visit the Rmarkdown webpage for more information.
+
+Here follows another figure from built-in ggplot2 data:
+
+```{r figure2, warning =  FALSE, fig.align = 'center', fig.cap = "Diamond Cut Plot \\label{lit}", fig.ext = 'png', fig.height = 3, fig.width = 6}
+
+g <-
+ggplot(diamonds, aes(depth, fill = cut, colour = cut)) +
+  geom_density(alpha = 0.3) +
+  theme_bw()
+
+print(g)  
+
+```
+
+
+#  Methodology
+
+## Subsection
+Ideally do not overuse subsections. It equates to bad writing.^[This is an example of a footnote by the way. Something that should also not be overused.]
+
+## Math section
+
+Equations should be written as such:
+
+\begin{align} 
+\beta = \sum_{i = 1}^{\infty}\frac{\alpha^2}{\sigma_{t-1}^2} \label{eq1} \\ 
+\int_{x = 1}^{\infty}x_{i} = 1 \notag
+\end{align}
+
+If you would like to see the equations as you type in Rmarkdown, use $ symbols instead (see this for yourself by adjusted the equation):
+
+$$
+\beta = \sum_{i = 1}^{\infty}\frac{\alpha^2}{\sigma_{t-1}^2} \\ 
+\int_{x = 1}^{\infty}x_{i} = 1
+$$
+
+Note again the reference to equation \ref{eq1}. Writing nice math requires practice. Note I used a forward slashes to make a space in the equations. I can also align equations using  __\&__, and set to numbering only the first line. Now I will have to type ``begin equation'' which is a native \LaTeX command. Here follows a more complicated equation:
+
+
+\begin{align} 
+	y_t &= c + B(L) y_{t-1} + e_t   \label{eq2}    \\ \notag 
+	e_t &= H_t^{1/2}  z_t ; \quad z_t \sim  N(0,I_N) \quad \& \quad H_t = D_tR_tD_t \\ \notag
+		D_t^2 &= {\sigma_{1,t}, \dots, \sigma_{N,t}}   \\ \notag
+		\sigma_{i,t}^2 &= \gamma_i+\kappa_{i,t}  v_{i, t-1}^2 +\eta_i  \sigma_{i, t-1}^2, \quad \forall i \\ \notag
+		R_{t, i, j} &= {diag(Q_{t, i, j}}^{-1}) . Q_{t, i, j} . diag(Q_{t, i, j}^{-1})  \\ \notag
+		Q_{t, i, j} &= (1-\alpha-\beta)  \bar{Q} + \alpha  z_t  z_t'  + \beta  Q_{t, i, j} \notag
+\end{align}
+
+Note that in \ref{eq2} I have aligned the equations by the equal signs. I also want only one tag, and I create spaces using ``quads''. 
+
+See if you can figure out how to do complex math using the two examples provided in \ref{eq1} and \ref{eq2}.
+
+<!-- $$ -->
+<!-- This is a commented out section in the writing part. -->
+<!-- Comments are created by highlighting text, amnd pressing CTL+C -->
+<!-- \\begin{align} -->
+<!-- \\beta = \\alpha^2 -->
+<!-- \end{align} -->
+<!-- $$ -->
+
+# Results
+
+
+Tables can be included as follows. Use the _xtable_ (or kable) package for tables. Table placement = H implies Latex tries to place the table Here, and not on a new page (there are, however, very many ways to skin this cat. Luckily there are many forums online!).
+
+
+```{r ShortTable, results = 'asis'}
+
+library(xtable)
+data <- mtcars[1:5,] %>% tbl_df()
+
+table <- xtable(data, caption = "Short Table Example \\label{tab1}")
+  print.xtable(table, 
+             # tabular.environment = "longtable",
+             floating = TRUE,
+             table.placement = 'H', 
+             # scalebox = 0.3, 
+             comment = FALSE,
+             caption.placement = 'bottom',
+             )
+
+```
+
+To reference calculations __in text__, _do this:_ From table \ref{tab1} we see the average value of mpg is `r mean(mtcars[1:5,]$mpg)`.
+
+Including tables that span across pages, use the following (note that I add below the table: ``continue on the next page''). This is a neat way of splitting your table across a page.
+
+Use the following default settings to build your own possibly long tables. Note that the following will fit on one page if it can, but cleanly spreads over multiple pages:
+
+```{r LongTable, results = 'asis'}
+
+library(xtable)
+
+data = mtcars %>% tbl_df()
+  addtorow          <- list()
+  addtorow$pos      <- list()
+  addtorow$pos[[1]] <- c(0)
+  addtorow$command  <- c(paste("\\hline \n",
+                               "\\endhead \n",
+                               "\\hline \n",
+                               "{\\footnotesize Continued on next page} \n",
+                               "\\endfoot \n",
+                               "\\endlastfoot \n",sep=""))
+table <- xtable(data, caption = "Long Table Example")
+  print.xtable(table, 
+             tabular.environment = "longtable",
+             floating = FALSE, # Leave this as is.
+             table.placement = 'H', # Leave this as is.
+             booktabs = T, # Aesthetics
+             include.rownames = FALSE,  # Typically you don't want this in a table.
+             add.to.row = addtorow, # For adding the Continued on next page part...
+             comment = FALSE, 
+             caption.placement = 'bottom',  # Where do you want the caption?
+             size="\\fontsize{12pt}{13pt}\\selectfont"  # Size of text in table..
+             )
+# See https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf for table inspiration
+```
+
+\hfill
+
+<!-- hfill can be used to create a space, like here between text and table. -->
+
+
+## Huxtable
+
+Huxtable is a very nice package for making working with tables between Rmarkdown and Tex easier.
+
+This cost some adjustment to the Tex templates to make it work, but it now works nicely.
+
+See documentation for this package [here](https://hughjonesd.github.io/huxtable/huxtable.html). A particularly nice addition of this package is for making the printing of regression results a joy (see [here](https://hughjonesd.github.io/huxtable/huxtable.html#creating-a-regression-table)). Here follows an example:
+
+
+```{r, results = 'asis'}
+
+library(huxtable)
+
+data(diamonds, package = 'ggplot2')
+
+Title <- "Regression Output"
+Label <- "Reg01"
+    
+lm1 <- lm(price ~ carat, diamonds)
+lm2 <- lm(price ~ depth, diamonds)
+lm3 <- lm(price ~ carat + depth, diamonds)
+lm4 <- lm(price ~ carat*depth, diamonds)
+
+htab <- 
+huxreg(lm1, lm2, lm3, lm4, 
+                statistics = c(N = "nobs", R2 = "r.squared"), 
+                note = "%stars%.") %>% 
+  set_caption(Title) %>% 
+  set_label(Label) %>% 
+  set_width(.6)
+
+# More settings:
+font_size(htab) <- 10
+
+# Let's change regression names: this is slightly hacky, but works. Comment out this section to see what the default looks like:
+  Names <- c("Reg1", "Reg2", "Reg3", "Reg4")
+  for(i in 1:ncol(htab)) {
+    htab[1,][[1+i]] <- Names[i]  
+  }
+  
+# Now simply call the table:
+  
+htab
+
+```
+
+From Table \ref{Reg01} above, we see how to make reporting regressions easy. Making nice tables, though, takes some practice and there are various other packages you can explore as well.
+
+# Lists
+
+To add lists, simply using the following notation
+
+* This is really simple
+
+    + Just note the spaces here - writing in R you have to sometimes be pedantic about spaces...
+  
+* Note that Rmarkdown notation removes the pain of defining \LaTeX environments!
+
+# Conclusion
+
+I hope you find this template useful. Remember, stackoverflow is your friend - use it to find answers to questions. Feel free to write me a mail if you have any questions regarding the use of this package. To cite this package, simply type citation("Texevier") in Rstudio to get the citation for @Texevier (Note that uncited references in your bibtex file will not be included in References).
+
+<!-- Make title of bibliography here: -->
+<!-- \newpage -->
+# References  
