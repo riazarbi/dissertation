@@ -64,14 +64,7 @@
 \newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 
 %%%%  Remove the "preprint submitted to" part. Don't worry about this either, it just looks better without it:
-\makeatletter
-\def\ps@pprintTitle{%
-  \let\@oddhead\@empty
-  \let\@evenhead\@empty
-  \let\@oddfoot\@empty
-  \let\@evenfoot\@oddfoot
-}
-\makeatother
+\journal{NOT FOR RELEASE}
 
  \def\tightlist{} % This allows for subbullets!
 
@@ -141,33 +134,29 @@
 
 \begin{frontmatter}  %
 
-\title{Helping You Write Academic Papers in R using Texevier}
+\title{A Data Scientific Approach to Equity Backtesting Research}
 
-\author[Add1]{Nico Katzke}
-\ead{nfkatzke@gmail.com}
-
-\author[Add1,Add2]{John Smith}
-\ead{John Smith@gmail.com}
-
-\author[Add1,Add2]{John Doe}
-\ead{JohnSmith@gmail.com}
+\author[Add1]{Riaz J Arbi}
+\ead{riazarbi@gmail.com}
 
 
 
-\address[Add1]{Prescient Securities, Cape Town, South Africa}
-\address[Add2]{Some other Institution, Cape Town, South Africa}
 
-\cortext[cor]{Corresponding author: Nico Katzke}
+
+\address[Add1]{University of Cape Town, Cape Town, South Africa}
+
+\cortext[cor]{Corresponding author: Riaz J Arbi}
 
 \begin{abstract}
 \small{
-Abstract to be written here. The abstract should not be too long and
-should provide the reader with a good understanding what you are writing
-about. Academic papers are not like novels where you keep the reader in
-suspense. To be effective in getting others to read your paper, be as
-open and concise about your findings here as possible. Ideally, upon
-reading your abstract, the reader should feel he / she must read your
-paper in entirety.
+Contemporary research into the cross-sectional variation in stock
+returns is fraught with replication challenges. This makes it difficult
+to validate important results and hampers the advance of knowledge in
+the field. This project addresses some of these challenges by fitting
+the backtesting research process to a data scientific workflow. By
+making extensive use of standard open source statistical programming
+languages the authors provide an environment in which total replication
+is trivial and common statistical errors are avoided by default.
 }
 \end{abstract}
 
@@ -175,8 +164,9 @@ paper in entirety.
 
 \begin{keyword}
 \footnotesize{
-Multivariate GARCH \sep Kalman Filter \sep Copula \\ \vspace{0.3cm}
-\textit{JEL classification} L250 \sep L100
+backtest \sep data workflow\sep overfitting \sep historical simulation
+\sep replication \\ \vspace{0.3cm}
+\textit{JEL classification} G12
 }
 \end{keyword}
 \vspace{0.5cm}
@@ -205,11 +195,212 @@ Multivariate GARCH \sep Kalman Filter \sep Copula \\ \vspace{0.3cm}
 
 
 
-\section{This is the Proof-of-Concept Document. It will evolve into my
-Dissertation.}\label{this-is-the-proof-of-concept-document.-it-will-evolve-into-my-dissertation.}
+\textbf{This is a working paper. It is extremely messy and not intended
+to be read by anybody. It has been made publically avaialable to
+facilitate discussion among collaborators on the project.}
+
+\section{Introduction}\label{introduction}
+
+The objective of this thesis is to rebuild the Equity Asset Management
+research and trading pipeline in a Data Scientific way. The final body
+of work should provide a set of best practices guidelines that Asset
+Managers can use in production to improve their processes. This project
+has two objectives. The first is the rigorous documentation and
+construction of an equity research environment. The second is to engage
+in a process of discovery in the equity research space with a view to
+uncovering interesting topics to drill down to for future research. It
+is expected that this body of work can sustain several thesis topics. I
+have structured it in a modular way so that I can start at the beginning
+of the data science stack and move towards actual analysis. But if I
+don't get that far then I think the building and documentation of an
+equity research environment would be of considerable use to academics
+and professionals in the field.
+
+\section{Modular Approach}\label{modular-approach}
+
+A guiding principle in the construction of my thesis topic is ``don't
+reinvent the wheel.'' My topic is structured as a series of layers. Each
+successive layer is enabled by the layers below it. If a solution exists
+for any particular layer, the existing in-the-wild implementation can be
+documented and implemented and I can move on to the next layer. If a
+layer has not been implemented, or if no readily accessible open-source
+solution exists, I will endeavour to document a solution and compile a
+set of best practices.
+
+My thesis will serve several purposes. It will be -
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A collection of methods and recommendations for conducting equity
+  research in con- junction with common statistical software packages.
+\item
+  An instruction manual for building an equity research environment to
+  current statistical best practices.
+\item
+  A working open source system which can be cloned by equity researchers
+  to enable furthering of the discipline of equity research.
+\item
+  A demonstration set for what can currently be achieved in the space
+  using existing open source tools
+\end{enumerate}
+
+The layers, ordered according to the Data Science stack, are as follows
+-
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Documentation and construction of an updatable dataset that is free
+  from survivorship and look ahead bias, accurately models slippage and
+  transaction costs.
+\item
+  Implementation of an event-based backtester that can compute optimal
+  trades at each rebalancing period using both market and fundamental
+  data.
+\item
+  Evaluation of various machine learning prediction methods for their
+  alpha-generation capabilities.
+\end{enumerate}
+
+\section{Proposal}\label{proposal}
+
+Although each of the layers mentioned above appear simple, they each
+contain deep, difficult to surmount challenges. I expect that each of
+these layers are sufficient for a full thesis. I would like to spend the
+first four months of the 2018 calendar year building a data pipeline and
+research environment. The objective of this phase is to construct a
+working research environment and to search for interesting areas of
+further research. In the fifth month, I will review the potential topics
+I have uncovered and select one for further research. If no topics are
+suitable, I will refactor the code generates in the plat- form building
+phase, thoroughly document it, and submit it as my thesis. In this
+fallback scenario my thesis will be an open source software package and
+manual for the con- struction of a full equity research environment,
+form data collection through to trading. I intend to release this as
+open source software to serve as a guide for future researchers and
+enthusiasts. I have already identified the following topics that could
+be interesting subjects for deeper study: 1. Dataset Construction Clean,
+accurate datasets are important for both the backtesting and management
+of investment portfolios. The absence of such a dataset severely limits
+the management capabilities of an asset management firm and renders most
+academic research into systematic investment management useless. By
+building and documenting best prac- tices for equity dataset
+construction, I hope to enable quality, real-world applicable re- search
+in my academic peers and to provide the tools that asset managers need
+to rig- orously apply portfolio management theory to practice. Equity
+asset managers typically measure their investments against a benchmark.
+How- ever, most asset managers obtain the benchmark timeseries from data
+vendors, and if they do have the ability to create it in-house, it is a
+manual human-driven process. Data from vendors is often contradictory.
+Problems to be solved in this section would include - 1. Selection and
+construction of an appropriate database solution, weighing speed and
+simplicity against consistency and atomicity. Review of existing
+technologies and schema. Research into the appropriate ways of dealing
+with validation time versus transactional time and define a method for
+dealing with contradictory data from multiple data sources. 2. Automate
+the consumption of underlying constituent data and the building of the
+benchmarks from first principles. Consume multiple sources and use
+selection or aver- aging rules to reconcile conflicting datas sources.
+2. Building a Backtester Backtester construction is well documented, and
+there exist some excellent open source solutions. However, these
+solutions tend to be focused on US markets, and they lack certain
+capabilities. The primary shortcoming of these packages is that they
+tend to be security-centric, not benchmark-centric. For instance,
+zipine, the popular python algorithmic trading package, currently
+provides no functionality for simply executing aThesis Proposal passive
+market-cap-weighted investment strategy. Baskets of stocks can only be
+spec- ified by manual lists. This renders the zipline package useless to
+professional asset managers, since modern portfolio management is
+centered around active-weight deviations from a benchmark. The starting
+point of any portfolio should be a benchmark portfolio, and a trading
+algo- rithm should specify deviations from the benchmark. Problems in
+this section would be - 1. A survey of existing implementations, along
+with a summary of capabilities and shortcomings 2. Assessment of these
+systems from a modern portfolio theory perspective 3. Leverage the work
+done in dataset construction to build an event-driven backtester that
+allows an asset manager to rigorously backtest investment ideas. 3.
+Evaluation of various Machine Learning prediction methods This topic can
+only be tackled once the above two topics have been dealt with. There is
+a fair amount of research on the implementation of machine learning
+algorithms for the prediction of stock prices. Research in this area
+appears to be fraught with poor data input and inaccurate modeling of
+transaction and slippage costs. This section would involve selecting
+several heavily-cited papers in the space and at- tempting to replicate
+them using our dataset and trading models. I am especially inter- ested
+in whether results are replicable, and what the impact of real-world
+transaction and spread costs would be. 4. Retool the portfolio
+implementation and research process along the lines of the Good Judgment
+Project This would be more of a theoretical topic. There has been a lot
+of good work done at the Good Judgment Project on the process of
+forecasting, and on the management of professional forecasters. See
+\url{https://www.edge.org/conversation/philip_tetlock-a-}
+short-course-in-superforecasting. Equity analysts and portfolio managers
+are professional forecasters, but there is very little quantifiable
+measurement of the forecasting abilities of these experts. Typically,
+analysts are simply measured on the excess return of their stock picks
+relative to the universe. The term for this is attribution, and it is
+the answer to the question, ``what per- centage of our fund's return is
+attributable to each analyst?''. The Good Judgment Project has developed
+a much more fine-grained approach to measuring forecasting, and they
+recognize that a forecast can be broken into separable components. In
+the equity price forecasting space, these component would be, for ex-
+ample, timing, direction of move, magnitude of move, underlying driver
+of move. A poor stock picker may be a very good predictor of underlying
+drivers of stock returns, but a poor predictor of timing responses of
+stocks to drivers. This topic would constitute a literature review of
+the new work done at the Good Judg- ment Project and translate that work
+into a model framework for recording the motiva-Thesis Proposal tions
+for stock picks. Since the thesis has to be completed by the end of 2018
+I do not think I could accumulate enough data for an evaluation of the
+model. 5) Extension of (4) into a multi-year research project I could
+use (4) as a springboard for getting actual asset managers to pilot the
+frame- work and create an ongoing research project on the impact of this
+paradigm for analyst accuracy. Integrate the measurement framework
+detailed into (4) into an automated trading process. Trades can only
+happen through the bet-logging tool; no trade occurs if any fields are
+null; entry and exit form the stock are determined by the bet-logging
+informa- tion. If an analyst wants to extend / reduce / cancel a bet, a
+new bet must be created. For instance, a long bet in gold can only be
+cancelled by a short bet in gold. This basi- cally makes deviation from
+rational investing an `opt-in' option: if no action is taken, no
+behavioural biases are introduced. The historical bets can be cubed by
+portfolio, analyst, time period and stock industry. and can be plotted
+against the benchmark. We can use statistics to determine who the good,
+well calibrated analysts are. We can mine this data for all sorts of
+interesting in- sights. Does a particular analyst generally get their
+initial bets correct but stymie their bets with re-bets? Then they don't
+have a handle on their behavioural biases. Does an analyst generally get
+their pharmaceutical bets right, but get their iron-ore mining bets
+wrong? Move them away from mining. Concluding Remarks The topics touched
+upon above are by no means a comprehensive account of what I think can
+be done in the space. But it should serve to convince the reader that
+there is massive scope for data science in the asset management and
+equity research space, both in the portfolio management workflow and in
+research. I would argue, in fact, that there is a significant overlap in
+the work that equity analysts do and that which data scientists do. Too
+often a finance graduate glosses past the data collection, cleaning and
+modeling phase of their project in order to get to their problem of
+interest. This invariably results in results which are worthless in the
+wild and is primary contributor to the maxim that ``every academic
+backtest yields alpha, but none actually makes money''. My singular
+conviction is that equity researchers need to be familiarized with data
+sci- ence tools; they need data science-grade environments and data
+sources. I believe that it would be a tremendous contribution to this
+field if I rigorously document how a re- searcher can make that
+transition. A secondary goal is to actually implement the envi- ronment
+and then start using the tools of data science to solve problems in the
+areas of asset management and equity research.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{Template Follows Below. Not Part of the Content of this WIP
+Paper}\label{template-follows-below.-not-part-of-the-content-of-this-wip-paper}
 
 \section{\texorpdfstring{Introduction
-\label{Introduction}}{Introduction }}\label{introduction}
+\label{Introduction}}{Introduction }}\label{introduction-1}
 
 References are to be made as follows: Fama and French
 (\protect\hyperlink{ref-fama1997}{1997}, 33) and Grinold and Kahn
@@ -255,7 +446,7 @@ consistency. I suggest keeping all your data in a data folder.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{dissertation_WIP_files/figure-latex/Figure1-1} 
+{\centering \includegraphics{dissertation_files/figure-latex/Figure1-1} 
 
 }
 
@@ -279,7 +470,7 @@ Here follows another figure from built-in ggplot2 data:
 
 \begin{figure}[H]
 
-{\centering \includegraphics{dissertation_WIP_files/figure-latex/figure2-1} 
+{\centering \includegraphics{dissertation_files/figure-latex/figure2-1} 
 
 }
 

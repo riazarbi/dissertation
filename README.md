@@ -9,40 +9,31 @@ __Supervisor: Associate Professor Tim Gebbie__
 
 ---
 
-__Abstract__
+__Abstract__  
+Contemporary research into the cross-sectional variation in stock returns is fraught with replication challenges. This makes it difficult to validate important results and hampers the advance of knowledge in the field. This project addresses some of these challenges by fitting the backtesting research process to a data scientific workflow. By making extensive use of standard open source statistical programming languages the authors provide an environment in which total replication is trivial and common statistical errors are avoided by default.
 
 __Keywords__  
+
+backtest, data workflow, overfitting, historical simulation, replication
 
 ---
 
 ## 1. Hypothesis
-##### TG: Coment here - which hypothesis format sould I use? 
-##### Option 1:
-- There are major replicability issues surrounding academic research into the cross-sectional variation in stock returns.
-- These issues can be largely mitigated by adhering to a data-scientific approach to data analysis.
+
+- There are major replicability issues surrounding academic research into the cross-sectional variation in stock returns. These issues can be largely mitigated by adhering to a data-scientific approach to data analysis.
 - Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases.
 
-##### Option 2:
-There are major replicability issues surrounding academic research into the cross-sectional variation in stock returns. These issues can be categorized as follows -
-- Errors in data pre-processing
-- Documentation omissions
-- Statistical errors
-
-These issues can be largely mitigated by adhering to a data-scientific approach to data 
-analysis.  
-
-Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases.
-
-
 ## 2. Literature Review
+
 Replicating Anomalies
 Financial Charlatanism
 
 
 ## 3. Aims and Objectives
+
 This project is firmly rooted in the meta of finance research. The objective is not to validate whether particular anomalies in the cross-sectional variation of stock returns exists. Rather, it is to outline and implement a system wherein researchers can investigate these questions in a statistically rigorous manner.
 
-1. Survey of current academic backtest methods (see the [github dissertation repository](https://github.com/riazarbi/dissertation))
+1. Survey of current academic backtest methods (see the [github dissertation repository](https://github.com/riazarbi/dissertation/dissertation.pdf))
    - A critique of the challenges around replicability because of lack of documentation.  
    - A critique of the challenges around validity because of poor statistical methods (IS/OOS).
    - Discussion on how these challenges can be mitigated using standard data science tools.
@@ -53,6 +44,7 @@ This project is firmly rooted in the meta of finance research. The objective is 
 3. An original replication case study which makes use of the demonstration system to replicate a widely cited academic paper in the field (see the [github replication example](https://github.com/riazarbi/backtest_workflow/4_backtests/example)).
 
 ## 4. Data Requirements Specification
+
 All stages of the data collection and transformation will be transparently documented and source code will be made avaialble on a hosted repository.
 
 All raw data wll be programmatically extracted from a Bloomberg Terminal using the Excel Add-In. Validation of this data will be conducted by randomly selecting ten financial reports from the universe and cross-checking the contents of those financials against the raw data.
@@ -60,6 +52,7 @@ All raw data wll be programmatically extracted from a Bloomberg Terminal using t
 All data cleaning and interpolation will be done using the dplyr and tidyr packages in the R statistical computing language. 
 
 ## 5. Systems Requirements Specification
+
 #### Hardware Requirements  
     - A computer running an x86 processor
     - 50gb of hard drive space
