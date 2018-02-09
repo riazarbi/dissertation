@@ -1,3 +1,8 @@
+Habits
+================
+Riaz Arbi
+9 Feb 2018
+
 A Data Scientific Approach to Equity Backtesting Research
 =========================================================
 
@@ -19,14 +24,14 @@ backtest, data workflow, overfitting, historical simulation, replication
 
 ------------------------------------------------------------------------
 
-1. Hypothesis
--------------
+Hypothesis
+----------
 
 -   There are major replicability issues surrounding academic research into the cross-sectional variation in stock returns. These issues can be largely mitigated by adhering to a data-scientific approach to data analysis.
 -   Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases.
 
-2. Literature Review
---------------------
+Literature Review
+-----------------
 
 **note to supervisor** I'll flesh this out. Basically it'll be the argument we know and love about how the standards of reproducibility in science are not adhered to in the field and because of that we can't really admit much of it to the body of knowledge. I will rely heavily on the arguments made in the initial sections of Financial Charlasanism and Replicating Anomalies.
 
@@ -56,8 +61,8 @@ Three sections of the lit review will be -
 
 The lit review will be between 2 paragraphs and 1 page long.
 
-3. Aims and Objectives
-----------------------
+Aims and Objectives
+-------------------
 
 This project is firmly rooted in the meta of finance research. The objective is not to validate whether particular anomalies in the cross-sectional variation of stock returns exists. Rather, it is to outline and implement a system wherein researchers can investigate these questions in a statistically rigorous manner.
 
@@ -73,8 +78,8 @@ This project is firmly rooted in the meta of finance research. The objective is 
 
 1.  An original replication case study which makes use of the demonstration system to replicate a widely cited academic paper in the field (see the [github replication example](https://github.com/riazarbi/backtest_workflow/4_backtests/example)).
 
-4. Data Requirements Specification
-----------------------------------
+Data Requirements Specification
+-------------------------------
 
 All stages of the data collection and transformation will be transparently documented and source code will be made avaialble on a hosted repository.
 
@@ -82,8 +87,8 @@ All raw data wll be programmatically extracted from a Bloomberg Terminal using t
 
 All data cleaning and interpolation will be done using the dplyr and tidyr packages in the R statistical computing language.
 
-5. Systems Requirements Specification
--------------------------------------
+Systems Requirements Specification
+----------------------------------
 
 #### Hardware Requirements
 
@@ -111,8 +116,8 @@ The data will not be released due to data vendor licensing constraints. However,
 
 Version control of all project deliverables will be managed using the Git version control system. Commits will be pushed regularly to the publically avaialable GiHub repository to ensure timeous backups of the
 
-6. Project Milestone Deliverables
----------------------------------
+Project Milestone Deliverables
+------------------------------
 
 <table style="width:26%;">
 <colgroup>
@@ -205,7 +210,7 @@ Version control of all project deliverables will be managed using the Git versio
 </tbody>
 </table>
 
-7. References
--------------
+References
+----------
 
 Will fill out references from thelit review in proper fomat here.

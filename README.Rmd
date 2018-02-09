@@ -3,8 +3,8 @@ title: "Habits"
 author: Riaz Arbi
 date: 9 Feb 2018
 output: 
-  pdf_document: default
   github_document: default
+  pdf_document: default
 ---
 
 # A Data Scientific Approach to Equity Backtesting Research
