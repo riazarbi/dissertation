@@ -3,10 +3,6 @@ A Data Scientific Approach to Equity Backtesting Research
 Riaz Arbi
 9 Feb 2018
 
-**Supervisor: Associate Professor Tim Gebbie**
-
-------------------------------------------------------------------------
-
 **Abstract**
 Contemporary research into the cross-sectional variation in stock returns is fraught with replication challenges. This makes it difficult to validate important results and hampers the advance of knowledge in the field. This project addresses some of these challenges by fitting the backtesting research process to a data scientific workflow. By making extensive use of standard open source statistical programming languages the authors provide an environment in which total replication is trivial and common statistical errors are avoided by default.
 

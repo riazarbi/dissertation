@@ -1,17 +1,14 @@
 ---
 title: "A Data Scientific Approach to Equity Backtesting Research"
 subtitle: "Masters in Data Science (STA????W) Research Proposal, University of Cape Town"
-author: Riaz Arbi
+author: 
+- Riaz Arbi
+- Supervised by Tim Gebbie
 date: 9 Feb 2018
 output: 
-  
   github_document: default
   pdf_document: default
 numbersections: yes   
----
-
-__Supervisor: Associate Professor Tim Gebbie__  
-
 ---
 
 __Abstract__  
