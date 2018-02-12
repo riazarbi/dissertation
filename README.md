@@ -1,16 +1,8 @@
-Habits
+A Data Scientific Approach to Equity Backtesting Research
 ================
 Riaz Arbi
 9 Feb 2018
 
-A Data Scientific Approach to Equity Backtesting Research
-=========================================================
-
-### Masters in Data Science (STA????W) Research Proposal
-
-#### University of Cape Town
-
-**Author: Riaz J Arbi**
 **Supervisor: Associate Professor Tim Gebbie**
 
 ------------------------------------------------------------------------
@@ -25,13 +17,13 @@ backtest, data workflow, overfitting, historical simulation, replication
 ------------------------------------------------------------------------
 
 Hypothesis
-----------
+==========
 
 -   There are major replicability issues surrounding academic research into the cross-sectional variation in stock returns. These issues can be largely mitigated by adhering to a data-scientific approach to data analysis.
 -   Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases.
 
 Literature Review
------------------
+=================
 
 **note to supervisor** I'll flesh this out. Basically it'll be the argument we know and love about how the standards of reproducibility in science are not adhered to in the field and because of that we can't really admit much of it to the body of knowledge. I will rely heavily on the arguments made in the initial sections of Financial Charlasanism and Replicating Anomalies.
 
@@ -62,7 +54,7 @@ Three sections of the lit review will be -
 The lit review will be between 2 paragraphs and 1 page long.
 
 Aims and Objectives
--------------------
+===================
 
 This project is firmly rooted in the meta of finance research. The objective is not to validate whether particular anomalies in the cross-sectional variation of stock returns exists. Rather, it is to outline and implement a system wherein researchers can investigate these questions in a statistically rigorous manner.
 
@@ -79,7 +71,7 @@ This project is firmly rooted in the meta of finance research. The objective is 
 1.  An original replication case study which makes use of the demonstration system to replicate a widely cited academic paper in the field (see the [github replication example](https://github.com/riazarbi/backtest_workflow/4_backtests/example)).
 
 Data Requirements Specification
--------------------------------
+===============================
 
 All stages of the data collection and transformation will be transparently documented and source code will be made avaialble on a hosted repository.
 
@@ -88,15 +80,17 @@ All raw data wll be programmatically extracted from a Bloomberg Terminal using t
 All data cleaning and interpolation will be done using the dplyr and tidyr packages in the R statistical computing language.
 
 Systems Requirements Specification
-----------------------------------
+==================================
 
-#### Hardware Requirements
+Hardware Requirements
+---------------------
 
     - A computer running an x86 processor
     - 50gb of hard drive space
     - At least 8gb or RAM
 
-#### Software Requirements and Packages Used
+Software Requirements and Packages Used
+---------------------------------------
 
     - Access to a Bloomberg Terminal with Excel installed (does not have ot be the development machine)
     - A research machine running
@@ -108,7 +102,8 @@ Systems Requirements Specification
        - Nextcloud 12 for transferring data from the Bloomberg Terminal to the research machine
        
 
-#### Software Development Framework, configuration control and version control
+Software Development Framework, configuration control and version control
+-------------------------------------------------------------------------
 
 The primary objective of this dissertation is the creation of a script-based workflow that improves the equity backtesting research process. The complete codebase, as well as the dissertation and demonstration case will be made avaialble on a GitHub repository. The code will be released under an Apache 2.0 license.
 
@@ -117,7 +112,7 @@ The data will not be released due to data vendor licensing constraints. However,
 Version control of all project deliverables will be managed using the Git version control system. Commits will be pushed regularly to the publically avaialable GiHub repository to ensure timeous backups of the
 
 Project Milestone Deliverables
-------------------------------
+==============================
 
 <table style="width:26%;">
 <colgroup>
@@ -211,6 +206,6 @@ Project Milestone Deliverables
 </table>
 
 References
-----------
+==========
 
 Will fill out references from thelit review in proper fomat here.
