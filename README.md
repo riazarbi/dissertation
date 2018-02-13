@@ -1,7 +1,6 @@
 A Data Scientific Approach to Equity Backtesting Research
 ================
-Riaz Arbi
-9 Feb 2018
+13 February, 2018
 
 **Abstract**
 Contemporary research into the cross-sectional variation in stock returns is fraught with replication challenges. This makes it difficult to validate important results and hampers the advance of knowledge in the field. This project addresses some of these challenges by fitting the backtesting research process to a data scientific workflow. By making extensive use of standard open source statistical programming languages the authors provide an environment in which total replication is trivial and common statistical errors are avoided by default.
@@ -27,9 +26,9 @@ Three sections of the lit review will be -
 
 1.  A survey of several well-known backtests and the documentation of their workflow
 
--   Fama (1973)
--   Fama (1992)
--   Daniel and Titman (1997)
+-   E. F. Fama and MacBeth ([1973](#ref-Fama1973))
+-   E. Fama and French ([1992](#ref-Fama1992))
+-   Daniel and Titman ([1997](#ref-Daniel1997))
 -   Hou (2017)
 
 1.  Reproducibility in science in general and the field in particular
@@ -88,7 +87,7 @@ Hardware Requirements
 Software Requirements and Packages Used
 ---------------------------------------
 
-    - Access to a Bloomberg Terminal with Excel installed (does not have ot be the development machine)
+    - Access to a Bloomberg Terminal with Excel installed
     - A research machine running
        - Ubuntu 16.04 LTS
        - Jupyter Server
@@ -110,18 +109,16 @@ Version control of all project deliverables will be managed using the Git versio
 Project Milestone Deliverables
 ==============================
 
-<table style="width:26%;">
+<table style="width:86%;">
 <colgroup>
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="5%" />
+<col width="20%" />
+<col width="48%" />
+<col width="16%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Date</th>
 <th>Milestone</th>
-<th>Code Reference Point</th>
 <th>Status</th>
 </tr>
 </thead>
@@ -129,73 +126,61 @@ Project Milestone Deliverables
 <tr class="odd">
 <td>October 2017</td>
 <td>Set up server with necessary dependencies</td>
-<td><a href="https://github.com/riazarbi/serversetup" class="uri">https://github.com/riazarbi/serversetup</a></td>
 <td>Complete</td>
 </tr>
 <tr class="even">
 <td>November 2017</td>
 <td>Build Bloomberg Excel VBA Workbook to scrape data</td>
-<td><a href="https://github.com/riazarbi/backtest_workflow/tree/master/2_data_collection" class="uri">https://github.com/riazarbi/backtest_workflow/tree/master/2_data_collection</a></td>
 <td>Complete</td>
 </tr>
 <tr class="odd">
 <td>January 2018</td>
 <td>Scrape Bloomberg terminal for data</td>
-<td><a href="https://github.com/riazarbi/backtest_workflow/tree/master/2_data_collection" class="uri">https://github.com/riazarbi/backtest_workflow/tree/master/2_data_collection</a></td>
 <td>Complete</td>
 </tr>
 <tr class="even">
 <td>January 2018</td>
 <td>Merge raw files into single csv files</td>
-<td><a href="https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning" class="uri">https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning</a></td>
 <td>Complete</td>
 </tr>
 <tr class="odd">
 <td>February 2018</td>
 <td>Clean, join and interpolate data</td>
-<td><a href="https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning" class="uri">https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning</a></td>
-<td>In progress</td>
+<td>In Progress</td>
 </tr>
 <tr class="even">
 <td>February 2018</td>
 <td>Transform raw data into Sqlite file</td>
-<td><a href="https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning" class="uri">https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning</a></td>
-<td>In progress</td>
+<td>In Progress</td>
 </tr>
 <tr class="odd">
 <td>March 2018</td>
 <td>Build out code to control for backtesting biases (look-ahead, survivorship etc)</td>
-<td><a href="https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning" class="uri">https://github.com/riazarbi/backtest_workflow/tree/master/3_data_cleaning</a></td>
 <td>Not Started</td>
 </tr>
 <tr class="even">
 <td>April 2018</td>
 <td>Perform a case study backtest</td>
-<td><a href="https://github.com/riazarbi/dissertation" class="uri">https://github.com/riazarbi/dissertation</a></td>
 <td>Not Started</td>
 </tr>
 <tr class="odd">
 <td>May 2018</td>
 <td>Debug, refactor, refine</td>
-<td>...</td>
 <td>Not Started</td>
 </tr>
 <tr class="even">
 <td>June 2018</td>
 <td>Add additional data sources: iNet, Datastream</td>
-<td></td>
 <td>Not Started</td>
 </tr>
 <tr class="odd">
 <td>July 2018</td>
 <td>Replicate case study backtest on alternative data and compare differential results</td>
-<td></td>
 <td>Not Started</td>
 </tr>
 <tr class="even">
 <td>August 2018</td>
 <td>Create second backtest and document workflow steps and benchmark timing</td>
-<td></td>
 <td>Not Started</td>
 </tr>
 </tbody>
@@ -204,4 +189,8 @@ Project Milestone Deliverables
 References
 ==========
 
-Will fill out references from thelit review in proper fomat here.
+Daniel, Kent, and Sheridan Titman. 1997. “Evidence on the Characteristics of Cross Sectional Variation in Stock Returns.” *The Journal of Finance* 52 (1): 1. doi:[10.2307/2329554](https://doi.org/10.2307/2329554).
+
+Fama, E., and K. French. 1992. “The Cross-Section of Expected Stock Returns.” doi:[10.2307/2329112](https://doi.org/10.2307/2329112).
+
+Fama, Eugene F., and James D. MacBeth. 1973. “Risk, Return, and Equilibrium: Empirical Tests.” *Journal of Political Economy* 81. The University of Chicago Press: 607–36. doi:[10.2307/1831028](https://doi.org/10.2307/1831028).

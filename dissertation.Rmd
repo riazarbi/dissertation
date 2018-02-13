@@ -46,8 +46,10 @@ fontsize: 11pt                  # Set fontsize
 linestretch: 1.2                # Set distance between lines.
 link-citations: TRUE            # This creates dynamic links to the papers in reference list.
 output:
-  pdf_document:
+    github_document: default
+    pdf_document:
     keep_tex: TRUE
+
     template: Tex/TexDefault.txt
     fig_width: 3.5 # Adjust default figure sizes. This can also be done in the chunks of the text.
     fig_height: 3.5
