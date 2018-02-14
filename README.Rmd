@@ -8,11 +8,10 @@ subtitle: |
   
   | Prepared by : Riaz J Arbi
   | Supervised by: Associate Professor Tim Gebbie
-
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-  github_document: default
   pdf_document: default
+  github_document: default
 numbersections: yes
 fontsize: 11pt                  # Set fontsize
 linestretch: 1.2                # Set distance between lines.
@@ -33,7 +32,8 @@ backtest, data workflow, overfitting, historical simulation, replication
 # Hypothesis
 
 - There are major replicability issues surrounding academic research into the cross-sectional variation in stock returns. These issues can be largely mitigated by adhering to a data-scientific approach to data analysis.
-- Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases.
+- Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases. 
+- The general availability of a _minimally sufficient analysis environment_ should make the replication of results in the field more robust, easier to admit into the established knowledge base speed up iterative knowledge creation through significantly shortening the time required for downstream researchers to build on principal authors' work.
 
 # Literature Review
 
