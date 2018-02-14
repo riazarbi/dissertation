@@ -10,8 +10,8 @@ subtitle: |
   | Supervised by: Associate Professor Tim Gebbie
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-  pdf_document: default
   github_document: default
+  pdf_document: default
 numbersections: yes
 fontsize: 11pt                  # Set fontsize
 linestretch: 1.2                # Set distance between lines.
