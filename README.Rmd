@@ -2,7 +2,7 @@
 title: |
   | A Data Scientific Approach to Equity Backtesting Research
 subtitle: |
-  | Masters in Data Science (STA5079W) Research Proposal 
+  | Masters in Data Science (STA5079W) Startment of Research Interest 
   | University of Cape Town, South Africa
   |
   
@@ -29,29 +29,29 @@ backtest, data workflow, overfitting, historical simulation, replication
 
 ---
 
-# Hypothesis
+# Motivating Argument
 
 - There are major replicability issues surrounding academic research into the cross-sectional variation in stock returns. These issues can be largely mitigated by adhering to a data-scientific approach to data analysis.
 - Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases. 
 - The general availability of a _minimally sufficient analysis environment_ should make the replication of results in the field more robust, easier to admit into the established knowledge base speed up iterative knowledge creation through significantly shortening the time required for downstream researchers to build on principal authors' work.
 
-# Literature Review
+# Discussion
 
-__note to supervisor__ I'll flesh this out. Basically it'll be the argument we know and love about how the standards of reproducibility in science are not adhered to in the field and because of that we can't really admit much of it to the body of knowledge. I will rely heavily on the arguments made in the initial sections of Financial Charlasanism and Replicating Anomalies.
+Academic research into anomalies in the cross section of stock returns is beset by a replication crisis. A large proportion of the existing anomalies literature yields statistically insignificant findings when replicated (@Hou2017). Failure to replicate results is an established thread of research in its own right.
 
-Three sections of the lit review will be - 
+This dissertation will survey the literature on anomalies research to map inadequacies in documentation, data cleaning and statistical modelling. A preliminary list of relevant papers in this area are provided below.
 
 1. A survey of several well-known backtests and the documentation of their workflow
    - @Fama1973
    - @Fama1992
    - @Daniel1997
    - @Hou2017
+
 2. Reproducibility in science in general and the field in particular
    - @Stodden2013
    - @Ioannidis2005
    - @Brodeur2016
    - @Harvey2014a
-   - @Hou2017
    - @Munafo2017
    
 3. Statistical errors in backtests
@@ -59,7 +59,7 @@ Three sections of the lit review will be -
  - @Bailey2014
  - @Hou2017
 
-The lit review will be between 2 paragraphs and 1 page long.
+Following
 
 # Aims and Objectives
 
@@ -71,7 +71,8 @@ This project is firmly rooted in the meta of finance research. The objective is 
    - Discussion on how these challenges can be mitigated using standard data science tools.
 
 2. Documentation of an working demonstration system that mitigates these challenges (see the [github code repository](https://github.com/riazarbi/backtest_workflow)).
-   - Source code along with README documentation of every phase of the project will be released to a public repository under and Apache 2.0 license.
+   - Source code along with README documentation of every phase of the project will be released to a public repository under the AGPLv3 license.
+   - A strong copyleft license was chosen because a fundamental pronciple of this project is the facilitation of replication. Insofar that code sharing is necessary for replication, any researcher that uses this code should make their derivative work avaialable for replication.
 
 3. An original replication case study which makes use of the demonstration system to replicate a widely cited academic paper in the field (see the [github replication example](https://github.com/riazarbi/backtest_workflow/4_backtests/example)).
 
@@ -118,6 +119,7 @@ Version control of all project deliverables will be managed using the Git versio
 | January 2018 |Merge raw files into single csv files | Complete |
 | February 2018 | Document Codebase to Date | In Progress |
 | February 2018 | Write Project Proposal | In Progress |
+| February 2018 | Register for Academic Year | In Progress 
 | February 2018 |Clean, join and interpolate data | In Progress |
 | February 2018 |Transform raw data into Sqlite file | In Progress |
 | March 2018 | Build out code to control for backtesting biases (look-ahead, survivorship etc) |  Not Started |
