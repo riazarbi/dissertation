@@ -10,8 +10,8 @@ subtitle: |
   | Supervised by: Associate Professor Tim Gebbie
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-  github_document: default
   pdf_document: default
+  github_document: default
 numbersections: yes
 fontsize: 11pt                  # Set fontsize
 linestretch: 1.2                # Set distance between lines.
@@ -45,19 +45,19 @@ Three sections of the lit review will be -
    - @Fama1973
    - @Fama1992
    - @Daniel1997
-   - Hou (2017)
+   - @Hou2017
 2. Reproducibility in science in general and the field in particular
-   - Setting the Default to Reproducible
-   - Why Most Published Research Findings Are False
-   - Star Wars: The Empirics Strike Back
-   - Evaluating trading strategies
-   - Replicating anomalies
-   - A manifesto for reproducible science
+   - @Stodden2013
+   - @Ioannidis2005
+   - @Brodeur2016
+   - @Harvey2014a
+   - @Hou2017
+   - @Munafo2017
    
 3. Statistical errors in backtests
- - The probability of backtest overfitting
- - Pseudo-mathematics
- - Replicating anomalies
+ - @LopezdePrado2013
+ - @Bailey2014
+ - @Hou2017
 
 The lit review will be between 2 paragraphs and 1 page long.
 
@@ -103,9 +103,9 @@ All data cleaning and interpolation will be done using the dplyr and tidyr packa
 ## Software Development Framework, configuration control and version control  
 The primary objective of this dissertation is the creation of a script-based workflow that improves the equity backtesting research process. The complete codebase, as well as the dissertation and demonstration case will be made avaialble on a GitHub repository. The code will be released under an Apache 2.0 license.
 
-The data will not be released due to data vendor licensing constraints. However, macro-enabled Excel workbooks that programmatically query the Bloomberg Excel Add-In for relevant data will be made avaialable in the public repository.
+The data will not be released due to data vendor licensing constraints. However, macro-enabled Excel workbooks that programmatically query the Bloomberg Excel Add-In for relevant data will be made available in the public repository.
 
-Version control of all project deliverables will be managed using the Git version control system. Commits will be pushed regularly to the publically avaialable GiHub repository to ensure timeous backups of the 
+Version control of all project deliverables will be managed using the Git version control system. Commits will be pushed regularly to the publically avaialable GiHub repository to ensure timeous backups of thw working paper and codebase.
 
 # Project Milestone Deliverables
 
@@ -113,16 +113,21 @@ Version control of all project deliverables will be managed using the Git versio
 |--------------|----------------------------------|-----------|
 | October 2017 | Set up server with necessary dependencies | Complete | 
 | November 2017 |Build Bloomberg Excel VBA Workbook to scrape data | Complete |
-| January 2018 |Scrape Bloomberg terminal for data | Complete |
+| December 2018 | First Pass Literature Review | In Progess |
+| January 2018 | Scrape Bloomberg terminal for data | Complete |
 | January 2018 |Merge raw files into single csv files | Complete |
+| February 2018 | Document Codebase to Date | In Progress |
+| February 2018 | Write Project Proposal | In Progress |
 | February 2018 |Clean, join and interpolate data | In Progress |
 | February 2018 |Transform raw data into Sqlite file | In Progress |
 | March 2018 | Build out code to control for backtesting biases (look-ahead, survivorship etc) |  Not Started |
 | April 2018 | Perform a case study backtest | Not Started | 
 | May 2018 | Debug, refactor, refine | Not Started |
+| May 2018 | Re-document Codebase to Date | Not Started |
 | June 2018 | Add additional data sources: iNet, Datastream | Not Started |
 | July 2018 | Replicate case study backtest on alternative data and compare differential results | Not Started |
 | August 2018 | Create second backtest and document workflow steps and benchmark timing | Not Started |
+| August 2018 | Wrap Code Documentation, proposal and findings into dissertation | Not Started |
 
 
 # References
