@@ -22,7 +22,7 @@ There are major replicability issues surrounding academic research into the cros
 2.  Robustness of results in the field of stock return research can be can be significantly improved by accounting for the risk of overfitting as the number of trials increases.
 3.  The general availability of a *minimally sufficient analysis environment* should make the replication of results in the field more robust, easier to admit into the established knowledge base and speed up iterative knowledge creation through significantly shortening the time required for downstream researchers to build on principal authors' work.
 
-Discussion
+Motivation
 ==========
 
 Summary of Replication Challenges in Backtesting
@@ -116,7 +116,7 @@ Data Requirements Specification
 
 All stages of the data collection and transformation will be transparently documented and source code will be made avaialble on a GitHub hosted repository.
 
-All raw data wll be programmatically extracted from a Bloomberg Terminal using the Excel Add-In. Validation of this data will be conducted by randomly selecting ten financial reports from the universe and cross-checking the contents of those financials against the raw data.
+All raw data will be programmatically extracted from a Bloomberg Terminal using the Excel Add-In. Validation of this data will be conducted by randomly selecting ten financial reports from the universe and cross-checking the contents of those financials against the raw data.
 
 All data cleaning and interpolation will be done using the dplyr and tidyr packages in the R statistical computing language.
 
@@ -140,7 +140,7 @@ Software Requirements and Packages Used
        - RStudio Server
        - Python 3.5
        - R 3.4.3
-       - Nextcloud 12 for transferring data from the Bloomberg Terminal to the research machine
+       - Nextcloud 12 or later for transferring data from the Bloomberg Terminal to the research machine
        
 
 Software Development Framework, Configuration Control and Version Control
@@ -150,7 +150,7 @@ The primary objective of this dissertation is the creation of a script-based wor
 
 The data will not be released due to data vendor licensing constraints. However, macro-enabled Excel workbooks that programmatically query the Bloomberg Excel Add-In for relevant data will be made available in the public repository.
 
-Version control of all project deliverables will be managed using the Git version control system. Commits will be pushed regularly to the publically avaialable GiHub repository to ensure timeous backups of thw working paper and codebase.
+Version control of all project deliverables will be managed using the Git version control system. Commits will be pushed regularly to the publically available GiHub repository to ensure timeous backups of the working paper and codebase.
 
 Project Milestone Deliverables
 ==============================
