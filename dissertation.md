@@ -6,7 +6,7 @@ A Data Scientific Approach to Equity Backtesting Research
 <!-- ############################## -->
 <!-- # Start Writing here: -->
 <!-- ############################## -->
-**This is a working paper. It is extremely messy and not intended to be read by anybody. It has been made publically avaialable to facilitate discussion among collaborators on the project.**
+**This is a working paper. At present it just contains my initial concept brief. It is extremely messy and not intended to be read by anybody. It has been made publically avaialable to facilitate discussion among collaborators on the project.**
 
 Introduction
 ============

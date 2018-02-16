@@ -35,7 +35,6 @@ fontsize: 11pt                  # Set fontsize
 linestretch: 1.2                # Set distance between lines.
 link-citations: TRUE            # This creates dynamic links to the papers in reference list.
 output:
-  github_document: default
   pdf_document:
     keep_tex: TRUE
     template: Tex/TexDefault.txt
@@ -43,6 +42,7 @@ output:
     fig_height: 3.5
     include:
       in_header: Tex/packages.txt # Reference file with extra packages
+  github_document: default
 abstract: |
   Contemporary research into the cross-sectional variation in stock returns is fraught with replication challenges. This makes it difficult to validate important results and hampers the advance of knowledge in the field. This project addresses some of these challenges by fitting the backtesting research process to a data scientific workflow. By making extensive use of standard open source statistical programming languages the authors provide an environment in which total replication is trivial and common statistical errors are avoided by default.
 ---
@@ -63,7 +63,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width 
 <!-- # Start Writing here: -->
 <!-- ############################## -->
 
-__This is a working paper. It is extremely messy and not intended to be read by anybody. It has been made publically avaialable to facilitate discussion among collaborators on the project.__
+__This is a working paper. At present it just contains my initial concept brief. It is extremely messy and not intended to be read by anybody. It has been made publically avaialable to facilitate discussion among collaborators on the project.__
 
 # Introduction
 
