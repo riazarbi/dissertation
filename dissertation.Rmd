@@ -35,6 +35,7 @@ fontsize: 11pt                  # Set fontsize
 linestretch: 1.2                # Set distance between lines.
 link-citations: TRUE            # This creates dynamic links to the papers in reference list.
 output:
+  github_document: default
   pdf_document:
     keep_tex: TRUE
     template: Tex/TexDefault.txt
@@ -42,7 +43,6 @@ output:
     fig_height: 3.5
     include:
       in_header: Tex/packages.txt # Reference file with extra packages
-  github_document: default
 abstract: |
   Contemporary research into the cross-sectional variation in stock returns is fraught with replication challenges. This makes it difficult to validate important results and hampers the advance of knowledge in the field. This project addresses some of these challenges by fitting the backtesting research process to a data scientific workflow. By making extensive use of standard open source statistical programming languages the authors provide an environment in which total replication is trivial and common statistical errors are avoided by default.
 ---
@@ -81,8 +81,7 @@ A guiding principle in the construction of my thesis topic is "don't reinvent th
 
 My thesis will serve several purposes. It will be -
 
-1. A collection of methods and recommendations for conducting equity research in con-
-junction with common statistical software packages.
+1. A collection of methods and recommendations for conducting equity research in conjunction with common statistical software packages.
 2. An instruction manual for building an equity research environment to current statistical best practices.
 3. A working open source system which can be cloned by equity researchers to enable
 furthering of the discipline of equity research.
@@ -105,22 +104,20 @@ difficult to surmount challenges. I expect that each of these layers are suffici
 Clean, accurate datasets are important for both the backtesting and management of
 investment portfolios. The absence of such a dataset severely limits the management
 capabilities of an asset management firm and renders most academic research into
-systematic investment management useless. By building and documenting best prac-
-tices for equity dataset construction, I hope to enable quality, real-world applicable research in my academic peers and to provide the tools that asset managers need to rigorously apply portfolio management theory to practice.
+systematic investment management useless. By building and documenting best practices for equity dataset construction, I hope to enable quality, real-world applicable research in my academic peers and to provide the tools that asset managers need to rigorously apply portfolio management theory to practice.
 
-Equity asset managers typically measure their investments against a benchmark. How-
-ever, most asset managers obtain the benchmark timeseries from data vendors, and if
+Equity asset managers typically measure their investments against a benchmark. However, most asset managers obtain the benchmark timeseries from data vendors, and if
 they do have the ability to create it in-house, it is a manual human-driven process. 
 
 Data from vendors is often contradictory.
 
 Problems to be solved in this section would include -
 
-### Selection and construction of an appropriate database solution, weighing speed and
-simplicity against consistency and atomicity. Review of existing technologies and schema. Research into the appropriate ways of dealing with validation time versus
-transactional time and define a method for dealing with contradictory data from multiple data sources.
+### Selection and construction
+Selection and construction of an appropriate database solution weighing speed and simplicity against consistency and atomicity. Review of existing technologies and schema. Research into the appropriate ways of dealing with validation time versus transactional time and define a method for dealing with contradictory data from multiple data sources.
 
-### Automate the consumption of underlying constituent data and the building of the
+### Automate
+Automate the consumption of underlying constituent data and the building of the
 benchmarks from first principles. Consume multiple sources and use selection or averaging rules to reconcile conflicting datas sources.
 
 ## Building a Backtester
@@ -131,36 +128,36 @@ to be security-centric, not benchmark-centric. For instance, zipine, the popular
 
 Problems in this section would be -
 
-### A survey of existing implementations, along with a summary of capabilities and
+### Survey
+A survey of existing implementations, along with a summary of capabilities and
 shortcomings
 
-### Assessment of these systems from a modern portfolio theory perspective
+### Assessment
+Assessment of these systems from a modern portfolio theory perspective
 
-### Leverage the work done in dataset construction to build an event-driven backtester
+### Building
+Leverage the work done in dataset construction to build an event-driven backtester
 that allows an asset manager to rigorously backtest investment ideas.
 
 ### Evaluation of various Machine Learning prediction methods
-This topic can only be tackled once the above two topics have been dealt with. There is a fair amount of research on the implementation of machine learning algorithms for the prediction of stock prices. Research in this area appears to be fraught with poor data input and inaccurate modeling of transaction and slippage costs. This section would involve selecting several heavily-cited papers in the space and at-
-tempting to replicate them using our dataset and trading models. I am especially interested in whether results are replicable, and what the impact of real-world transaction and spread costs would be.
+This topic can only be tackled once the above two topics have been dealt with. There is a fair amount of research on the implementation of machine learning algorithms for the prediction of stock prices. Research in this area appears to be fraught with poor data input and inaccurate modeling of transaction and slippage costs. This section would involve selecting several heavily-cited papers in the space and attempting to replicate them using our dataset and trading models. I am especially interested in whether results are replicable, and what the impact of real-world transaction and spread costs would be.
 
-### Retool the portfolio implementation and research process along the lines of the
+### Retooling
+Retoolthe portfolio implementation and research process along the lines of the
 Good Judgment Project. This would be more of a theoretical topic. There has been a lot of good work done at the Good Judgment Project on the process of forecasting, and on the management of professional forecasters. See https://www.edge.org/conversation/philip_tetlock-a-short-course-in-superforecasting. 
 
 Equity analysts and portfolio managers are professional forecasters, but there is very
-little quantifiable measurement of the forecasting abilities of these experts. Typically, analysts are simply measured on the excess return of their stock picks relative to the universe. The term for this is attribution, and it is the answer to the question, “what percentage of our fund’s return is attributable to each analyst?”. The Good Judgment Project has developed a much more fine-grained approach to measuring forecasting, and they recognize that a forecast can be broken into separable components. In the equity price forecasting space, these component would be, for example, timing, direction of move, magnitude of move, underlying driver of move. A poor stock picker may be a very good predictor of underlying drivers of stock returns, but a poor predictor of timing responses of stocks to drivers. This topic would constitute a literature review of the new work done at the Good Judgment Project and translate that work into a model framework for recording the motiva-Thesis Proposal
-tions for stock picks. Since the thesis has to be completed by the end of 2018 I do not think I could accumulate enough data for an evaluation of the model.
+little quantifiable measurement of the forecasting abilities of these experts. Typically, analysts are simply measured on the excess return of their stock picks relative to the universe. The term for this is attribution, and it is the answer to the question, “what percentage of our fund’s return is attributable to each analyst?”. 
 
-### Extension of (4) into a multi-year research project
-I could use (4) as a springboard for getting actual asset managers to pilot the frame-
+The Good Judgment Project has developed a much more fine-grained approach to measuring forecasting, and they recognize that a forecast can be broken into separable components. In the equity price forecasting space, these component would be, for example, timing, direction of move, magnitude of move, underlying driver of move. A poor stock picker may be a very good predictor of underlying drivers of stock returns, but a poor predictor of timing responses of stocks to drivers. This topic would constitute a literature review of the new work done at the Good Judgment Project and translate that work into a model framework for recording the motivations for stock picks. Since the thesis has to be completed by the end of 2018 I do not think I could accumulate enough data for an evaluation of the model.
+
+### Extension into a multi-year research project
+I use this research as a  springboard for getting actual asset managers to pilot the frame-
 work and create an ongoing research project on the impact of this paradigm for analyst
-accuracy.
-Integrate the measurement framework detailed into (4) into an automated trading
-process. Trades can only happen through the bet-logging tool; no trade occurs if any
-fields are null; entry and exit form the stock are determined by the bet-logging informa-
-tion. If an analyst wants to extend / reduce / cancel a bet, a new bet must be created.
-For instance, a long bet in gold can only be cancelled by a short bet in gold. This basi-
-cally makes deviation from rational investing an 'opt-in' option: if no action is taken, no
-behavioural biases are introduced.
+accuracy. 
+
+I could integrate the retooled research process into an automated trading process. Trades can only happen through the bet-logging tool; no trade occurs if any fields are null; entry and exit form the stock are determined by the bet-logging information. If an analyst wants to extend / reduce / cancel a bet, a new bet must be created. For instance, a long bet in gold can only be cancelled by a short bet in gold. This basically makes deviation from rational investing an 'opt-in' option: if no action is taken, no behavioural biases are introduced.
+
 The historical bets can be cubed by portfolio, analyst, time period and stock industry.
 and can be plotted against the benchmark. We can use statistics to determine who the
 good, well calibrated analysts are. We can mine this data for all sorts of interesting in-
@@ -168,21 +165,17 @@ sights. Does a particular analyst generally get their initial bets correct but s
 bets with re-bets? Then they don't have a handle on their behavioural biases. Does an
 analyst generally get their pharmaceutical bets right, but get their iron-ore mining bets
 wrong? Move them away from mining.
-Concluding Remarks
+
+# Concluding Remarks
+
 The topics touched upon above are by no means a comprehensive account of what I
 think can be done in the space. But it should serve to convince the reader that there is
 massive scope for data science in the asset management and equity research space,
 both in the portfolio management workflow and in research. I would argue, in fact, that
 there is a significant overlap in the work that equity analysts do and that which data
-scientists do.
-Too often a finance graduate glosses past the data collection, cleaning and modeling
-phase of their project in order to get to their problem of interest. This invariably results
+scientists do. 
+
+Too often a finance graduate glosses past the data collection, cleaning and modeling phase of their project in order to get to their problem of interest. This invariably results
 in results which are worthless in the wild and is primary contributor to the maxim that
-“every academic backtest yields alpha, but none actually makes money”.
-My singular conviction is that equity researchers need to be familiarized with data sci-
-ence tools; they need data science-grade environments and data sources. I believe that
-it would be a tremendous contribution to this field if I rigorously document how a re-
-searcher can make that transition. A secondary goal is to actually implement the envi-
-ronment and then start using the tools of data science to solve problems in the areas of
-asset management and equity research.
+“every academic backtest yields alpha, but none actually makes money”. My singular conviction is that equity researchers need to be familiarized with data science tools; they need data science-grade environments and data sources. I believe that it would be a tremendous contribution to this field if I rigorously document how a researcher can make that transition. A secondary goal is to actually implement the environment and then start using the tools of data science to solve problems in the areas of asset management and equity research.
 
